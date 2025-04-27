@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Admin Login</title>
+</head>
+<body>
+    <!-- Homepage -->
+    <header class="header">
+        <h1>Welcome to StAnns SpotReserve</h1>
+        <p>Your one-stop solution for AV room and auditorium bookings.</p>
+    </header>
+
+    <!-- Login Page -->
+    <section id="login" class="form-section">
+        <h2>Admin Login</h2>
+        <form id="loginForm" class="form">
+            <input type="text" placeholder="Username" id="username" required>
+            <input type="password" placeholder="Password" id="password" required>
+            <button type="submit" class="btn">Login</button>
+            <p id="errorMessage" style="color: red; display: none;">Invalid username or password.</p>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2024 StAnns SpotReserve. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Login Validation and Redirection -->
+    <script>
+        // Replace with your actual admin credentials
+        const ADMIN_USERNAME = "admin";
+        const ADMIN_PASSWORD = "password123";
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the form from submitting
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Validate the credentials
+            if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                // Redirect to the admin dashboard
+                window.location.href = "admindash.html";
+            } else {
+                // Show an error message
+                const errorMessage = document.getElementById("errorMessage");
+                errorMessage.style.display = "block";
+                errorMessage.textContent = "Invalid username or password.";
+            }
+        });
+    </script>
+</body>
+</html>
